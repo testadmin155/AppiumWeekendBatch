@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Automation.Appium.Swipe">
+      <class name="Automation.Appium.BrowserTest">
         <methods>
-          <include name="SwipeTest"/>
-          <include name="AppiumConfiguration"/>
-          <include name="teardown"/>
+          <include name="chromebrowser"/>
         </methods>
-      </class> <!-- Automation.Appium.Swipe -->
+      </class> <!-- Automation.Appium.BrowserTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

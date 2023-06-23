@@ -17,7 +17,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
-public class BaseTest {
+public class BrowserBaseTest {
 	
 	public AndroidDriver driver ;
 	public AppiumDriverLocalService service;
@@ -26,7 +26,7 @@ public class BaseTest {
 	//url to download the APp
 	//https://github.com/appium-boneyard/sample-code/blob/master/sample-code/apps/ApiDemos/bin/ApiDemos-debug.apk
 	
-	@BeforeClass
+	//@BeforeClass
 	public void AppiumConfiguration() throws MalformedURLException 
 	{
 		//code to start the server
@@ -38,22 +38,15 @@ public class BaseTest {
 				//code to initialize the App
 				UiAutomator2Options options = new UiAutomator2Options();
 				options.setDeviceName("Pixel 3a API 30");
-				options.setChromedriverExecutable("C:\\Users\\skane\\Desktop\\Testing\\Appium APPs\\chromedriver_win32\\chromedriver.exe");
-				
-				//options.setApp("C:\\Users\\skane\\Documents\\WeekendBatchAppiumWorkSpace\\Appium\\src\\test\\java\\resources\\ApiDemos-debug.apk");
-				options.setApp("C:\\Users\\skane\\Documents\\WeekendBatchAppiumWorkSpace\\Appium\\src\\test\\java\\resources\\General-Store.apk");
+				options.setChromedriverExecutable("C:\\Users\\skane\\Desktop\\Testing\\Appium APPs\\chromedriver_win32");
+				options.setCapability("browserName", "Chrome");
 				
 				driver = new AndroidDriver(new URL("http://192.168.0.9:4723"), options);
 	}
 	
 	
-	public void longPressAction(WebElement element)
-	{
-		//script to long press
-				((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
-					    "elementId", ((RemoteWebElement) element).getId(), "duration",2000));
-	}
-    @AfterClass
+	
+    //@AfterClass
 	public void teardown()
 	{
 		//to stop the appium server
